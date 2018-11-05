@@ -1,0 +1,81 @@
+/* Resets some CSS elements */
+* {
+  margin: 0;
+  padding: 0;
+  font-size: 1em;
+  line-height: 1.5em;
+}
+
+/* HIDDEN ELEMENTS */
+
+/* hides entire nav header */
+header#headerAuth div, header#headerAuth div.container {
+  display: none;
+}
+/* hides blurb under report name */
+section#main div.container div.row div.col-xs-12 p {
+  display: none;
+}
+/* hides Print / Download buttons */
+section#main div.container div.row div.col-xs-12.col-md-3 {
+  display: none;
+}
+/* hide the date range box and horizontal rule line */
+section#main div.container form, section#main div.container hr {
+  display: none;
+}
+/* hides SearchToFilter box */
+section#main div.container div.row div.col-md-6 {
+  display: none;
+}
+/* hides entire footer */
+footer {
+  display: none;
+}
+
+/* POSITION AND FORMATTING */
+
+section#main div.container div.row div.col-md-12 table {
+  margin: 0 auto;
+  text-align: left;
+  float: left;
+  width: 100%;
+  padding-left: 2em;
+}
+section#main div.container div.row div.col-xs-12 h4 {
+  text-align: center;
+  font-size: 1.25em;
+}
+section#main div.container div.row div.col-md-12 {
+  text-align: center;
+}
+
+/* ADDED ELEMENTS & CONTENT */
+
+header#headerAuth {
+  content: url(juvodhrLogo-01.png);
+  text-align: left;
+  width: 106px;
+  margin: 1em 0 0 1em;
+}
+
+/* inserts the Company Name above the report itself */
+section#main div.container div.row div.col-xs-12 h4::before {
+  content: "$CompanyName";
+  font-size: 1.75em;
+  font-weight: bold;
+  display: block;
+  text-align: center;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+/* inserts the Date Range of the report */
+section#main div.container div.row div.col-md-12::before {
+  content: "$DateRange: 08/31/2017 - 08/31/2018";
+  /* ^^ this date range must be dynamically inserted into
+  either this CSS sheet, or into the page HTML and hidden for all views EXCEPT Print */
+  display: block;
+  font-size: 1.05em;
+  text-align: left;
+  padding-left: 2em;
+}

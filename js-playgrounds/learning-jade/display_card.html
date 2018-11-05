@@ -1,0 +1,39 @@
+
+
+<html>
+<head><title id="pageTitleID">Display a Card</title></head>
+<body>
+	<link rel="javascript" type="text/javascript" href=""/>
+	<!--imports the class (object) to instance cards-->
+	<script src="./cardConstructor.js" type="text/javascript" charset="utf-8">
+	</script>
+	
+    <script type="text/javascript">	
+	var dranasEmissary = new singleCardClass(
+		"Drana\'s Emissary",
+		["{1}{W}{B}", 3],
+		["Creature","Vampire","Ally"],
+		"Uncommon",
+		"",
+		"BFZ");
+        
+            for (prop in dranasEmissary) {
+                	document.write(prop +": "+ dranasEmissary[prop] +" ("+ typeof prop +") <br/>");
+			}
+
+			console.log(dranasEmissary.cmc[1] +" is typeof: "+ typeof dranasEmissary.cmc);
+			console.log("success");
+
+     battlefieldForge = new singleCardClass("Battlefield Forge")
+	for (prop in battlefieldForge) {
+     	document.write(battlefieldForge[prop]+" = "+prop+"<br>")
+	}
+
+	pageTitleTag = document.getElementsByTagName("title")[0].innerHTML;
+	titleTagId = document.getElementById("pageTitleID").innerHTML;
+	document.write("<br> Found with 'pageTitleTag': "+pageTitleTag)
+	document.write("<br> Found with 'titleTagId': "+titleTagId)
+
+    </script>
+</body>
+</html>

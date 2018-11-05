@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html class="mac safari safari11 webkit webkit6 js no-touch" lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="//s3.amazonaws.com/jweb-staging/skins/juvodhr.com/img/favicon-144x144.png">
+  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="//s3.amazonaws.com/jweb-staging/skins/juvodhr.com/img/favicon-114x114.png">
+  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="//s3.amazonaws.com/jweb-staging/skins/juvodhr.com/img/favicon-72x72.png">
+  <link rel="apple-touch-icon-precomposed" href="//s3.amazonaws.com/jweb-staging/skins/juvodhr.com/img/favicon-57x57.png">
+  <link rel="shortcut icon" href="//s3.amazonaws.com/jweb-staging/skins/juvodhr.com/img/favicon.ico">
+  <title>JuvodHR</title>
+  <link href="https://jweb-staging.s3.amazonaws.com/build/css/juvod.min.9929374ee414.css" rel="stylesheet" type="text/css" media="projection">
+  <!--- ARLOFT Print CSS ⬇️ -->
+  <link href="003print.css" rel="stylesheet" type="text/css" media="screen, print">
+  <!--- ARLOFT Print CSS ⬆️ -->
+  <link rel="stylesheet" href="https://appcenter.intuit.com/Content/IA/intuit.ipp.anywhere.css" type="text/css" media="all">
+  <!--[if IE 7]><style type='text/css'>.intuitPlatformConnectButton, .intuitPlatformReconnectButton, .intuitPlatformLoginButtonVertical, .intuitPlatformLoginButtonHorizontal, .intuitPlatformLoginButtonLogo { font-size:0; text-indent: 0; line-height: 0; overflow: hidden; }</style><![endif]-->
+
+</head>
+
+<body class>
+
+<header id="headerAuth" class="header-main">
+  <div style="font-size: 85%; text-align:center;">
+  </div>
+  <div class="container">
+    <nav class="navbar navbar-default" role="navigation">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle pull-left" data-toggle="collapse" data-target=".navbar-collapse"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
+        <div id="nav-logo">
+          <div class="logo" style="background-image: url(//s3.amazonaws.com/jweb-staging/skins/juvodhr.com/img/logo.svg);">
+          </div>
+        </div>
+      </div>
+      <div class="collapse navbar-collapse">
+        <ul class="nav navbar-nav">
+          <li><a href="/auth/home/">Home</a></li>
+          <li><a href="/employees">Employees</a></li>
+          <li><a href="/job/list/">Jobs</a></li>
+          <li><a href="/reports/">Reports</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="/account/manage/">My Account</a></li>
+          <li><a href="//juvodhr.zendesk.com/hc/en-us">Help</a></li>
+        </ul>
+      </div>
+    </nav>
+    <div class="separator-shadow-bottom">
+      <img alt="" src="//s3.amazonaws.com/jweb-staging/img/shadow-separator-wide-bottom.png">
+    </div>
+  </div>
+</header>
+
+<section id="main">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-1 hidden-xs">
+        <div class="icon_64 report_reviews_sprite hidden-sm hidden-xs">
+        </div>
+      </div>
+      <div class="col-xs-12 col-md-8">
+        <h4><strong>Reviews: Average scores by reviewer</strong></h4>
+        <p>Search to filter by reviewer name. Sort by Review Approval Date date. Select a date range.</p>
+      </div>
+      <div class="col-xs-12 col-md-3">
+        <a data-bind="attr: {'href': '/reports/003/print?start_date='+startDate()+'&amp;end_date=' +endDate()+'&amp;sort='+sortOrder()}" id="print" class="btn btn-default pull-left" href="/reports/003/print?start_date=2017-08-16&amp;end_date=2019-08-16&amp;sort=default">Print</a><a data-bind="attr: {'href': '/reports/003/download?start_date='+startDate()+'&amp;end_date=' +endDate()+'&amp;sort='+sortOrder()}" id="download" class="btn btn-default pull-right" href="/reports/003/download?start_date=2017-08-16&amp;end_date=2019-08-16&amp;sort=default">Download</a>
+      </div>
+    </div>
+    <br>
+    <form action="." method="GET" data-count="0">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="control-group required"><label class="control-label" for="start_date">Start Date</label><input type="date" name="start_date" id="start_date" class="form-control" data-bind="value: startDate">
+          </div>
+        </div>
+      </div>
+      <br>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="control-group required"><label class="control-label" for="finish_date">End Date</label><input type="date" name="end_date" id="end_date" class="form-control" data-bind="value: endDate">
+          </div>
+        </div>
+      </div>
+      <br>
+      <button type="submit" class="btn btn-default">Apply</button>
+    </form>
+    <hr>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="input-group"><input type="text" id="employeeSearch" class="form-control" placeholder="Type to search..."><span class="input-group-addon"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></span>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <table id="employeeList" class="table  table-striped dataTable">
+          <thead>
+            <tr>
+              <th class="col-xs-4 sorting_asc" data-attr="name">
+                <h4>Reviewer Name</h4>
+              </th>
+              <th data-attr="employees" class="sorting">
+                <h4>Employees</h4>
+              </th>
+              <th data-attr="reviews" class="sorting">
+                <h4>Reviews</h4>
+              </th>
+              <th data-attr="avg" class="sorting">
+                <h4>Average Score</h4>
+              </th>
+              <th data-attr="high" class="sorting">
+                <h4>Highest Score</h4>
+              </th>
+              <th data-attr="lowest">
+                <h4>Lowest Score</h4>
+              </th>
+            </tr>
+          </thead>
+          <tbody role="alert" aria-live="polite" aria-relevant="all">
+            <tr>
+              <td>
+                <p>Matt Moore</p>
+              </td>
+              <td>
+                <p>1</p>
+              </td>
+              <td>
+                <p>1</p>
+              </td>
+              <td>
+                <p>4.0</p>
+              </td>
+              <td>
+                <p>4.0</p>
+              </td>
+              <td>
+                <p>4.0</p>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <p>Derek Meyer</p>
+              </td>
+              <td>
+                <p>2</p>
+              </td>
+              <td>
+                <p>2</p>
+              </td>
+              <td>
+                <p>4.0</p>
+              </td>
+              <td>
+                <p>4.0</p>
+              </td>
+              <td>
+                <p>4.0</p>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <p>Juan M Lopez</p>
+              </td>
+              <td>
+                <p>8</p>
+              </td>
+              <td>
+                <p>8</p>
+              </td>
+              <td>
+                <p>4.0</p>
+              </td>
+              <td>
+                <p>4.0</p>
+              </td>
+              <td>
+                <p>4.0</p>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <p>Shaun White</p>
+              </td>
+              <td>
+                <p>1</p>
+              </td>
+              <td>
+                <p>1</p>
+              </td>
+              <td>
+                <p>4.0</p>
+              </td>
+              <td>
+                <p>4.0</p>
+              </td>
+              <td>
+                <p>4.0</p>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <p>Priya Vivek</p>
+              </td>
+              <td>
+                <p>1</p>
+              </td>
+              <td>
+                <p>1</p>
+              </td>
+              <td>
+                <p>4.0</p>
+              </td>
+              <td>
+                <p>4.0</p>
+              </td>
+              <td>
+                <p>4.0</p>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer id="footer" style="margin-top:4em;" class="footer text-center">
+  <div class="separator-shadow-bottom">
+    <img alt="" style="width: 100%" src="//s3.amazonaws.com/jweb-staging/img/shadow-separator-wide-bottom.png">
+  </div>
+  <div class="container"><a href="/service/">Terms of Service</a><i class="sep"> • </i>
+    <br class="visible-xs"><a href="/privacy/">Privacy Policy</a><i class="sep"> • </i>
+    <br class="visible-xs"><a href="/account/plans/">Pricing</a><i class="sep"> • </i>
+    <br class="visible-xs"><a href="/about/">About Us</a><i class="sep"> • </i>
+    <br class="visible-xs"><a href="/affiliates-trusted-partners/">Trusted Partners</a><i class="sep"> • </i>
+    <br class="visible-xs"><a href="/blog/">Blog</a>
+    <p>JuvodHR Inc. Copyright 2018</p><a class="pull-right" href="https://mixpanel.com/f/partner">
+    <img src="//cdn.mxpnl.com/site_media/images/partner/badge_light.png" alt="Mobile Analytics"></a>
+  </div>
+</footer>
+</body>
+</html>

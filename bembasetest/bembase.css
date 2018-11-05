@@ -1,0 +1,141 @@
+/* block CompanyLogo */
+section#CompanyLogo img {
+  /* none applied; tweaked in MEDIA QUERIES section (bottom) */
+}
+
+/* block HeaderAuth */
+nav#HeaderAuth ul {
+  background-color: pink;
+  /* removing UL list indent: https://stackoverflow.com/a/13939142 */
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 0; /* removes UL bottom margin */
+  margin-left: 132px;
+  margin-bottom: -44px;
+  position: relative;
+  top: -44px;
+}
+nav ul li {
+  background-color: aqua;
+  display: inline-block;
+  margin-left: 1em;
+  width: 5em;
+  /* ^^^ sets the absolute width of the container for each LI element,
+  forcing it to wrap down a line if too long */
+}
+
+/* block Tidbit */
+section#Tidbit h1 {
+  background-color: red;
+  padding-left: 0.65em;
+  float: left;
+  width: 70%
+}
+
+/* block ProgressContinuity */
+section#ProgressContinuity input {
+  margin: 0.25em;
+  margin-left: 0.5em;
+}
+
+/* block Leader */
+section#Leader {
+  background: rgba(38,134,247,0.25);
+  height: 480px;
+}
+section#Leader img {
+  height: 456px;
+}
+
+div#PanelSignInSignUp {
+  width: 380px;
+  height: 400px;
+  background: rgba(229,229,229,1);
+  /* float: right; */
+  position: relative;
+  top: -420px;
+  margin-left: 60%;
+  /* left: -100px; */
+  /* top: 18px; */
+  z-index: 1;
+}
+
+.dropshadow {
+  -webkit-box-shadow: 0px 0px 28px 1px rgba(0,0,0,0.3);
+  -moz-box-shadow: 0px 0px 28px 1px rgba(0,0,0,0.3);
+  box-shadow: 0px 0px 28px 1px rgba(0,0,0,0.3);
+}
+
+/***********************/
+/**** MEDIA QUERIES ****/
+/***********************/
+
+
+
+/* Moving Logo DOWN as displays get SMALLER THAN 800px wide */
+@media (max-width: 694px) {
+  section#CompanyLogo img {
+    position: relative;
+    top: 0.9em;
+  }
+}
+@media (max-width: 668px) {
+  section#CompanyLogo img {
+    position: relative;
+    top: 0.85em;
+  }
+}
+@media (max-width: 525px) {
+  section#CompanyLogo img {
+    position: relative;
+    top: 1.5em;
+  }
+}
+@media (max-width: 414px) {
+  section#CompanyLogo img {
+    position: relative;
+    top: 3em;
+  }
+}
+@media (max-width: 375px) {
+  section#CompanyLogo img {
+    position: relative;
+    top: 3.1em;
+  }
+}
+@media (max-width: 320px) {
+  section#CompanyLogo img {
+    position: relative;
+    top: 7.25em;
+  }
+}
+/* Adjust nav spacing for displays LARGER THAN 1266px wide */
+@media (min-width: 1325px) {
+  nav#HeaderAuth ul {
+    height: 3em;
+  }
+}
+@media (min-width: 1331px) {
+  nav#HeaderAuth ul {
+    height: 3em;
+    padding-top: 0.65em;
+  }
+}
+/* Adjust H1 width on VERY SMALL screens; keeps Download button on same line */
+@media (max-width: 380px) {
+  section#Tidbit h1 {
+    background-color: red;
+    padding-left: 0.65em;
+    float: left;
+    width: 100%;
+  }
+}
+
+@media (max-width: 320px) {
+  section#Tidbit h1 {
+    background-color: red;
+    padding-left: 0.65em;
+    float: left;
+    width: 100%;
+  }
+}

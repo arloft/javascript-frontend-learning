@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+<!--CSS styling-->
+	<style type="text/css">
+		body div {
+			margin: 0;
+/* We'll change the div margin CSS to '1em 0 1em 0' via JS */
+		}
+	</style>
+	
+    <title>Apply JavaScript example</title>
+  </head>
+<!--Document body-->
+  <body>
+	  <p id="myText">Affect page elements with Javascript.</p>
+    <button>Click me</button>
+	<div id="searchField">
+		<form>
+			<input type="text" name="searchedTerms">
+			<input type="submit" name="submitSearch">
+		</form>  
+	</div>
+	<h5 class="invaderParagraph">I'm an H5 with a CLASS of "invaderParagraph". Any H5 with that class should print a new paragraph when clicked on.</h5>
+	<h5>I won't do anything because I don't have the "invaderParagraph" class.</h5>
+	<h5 class="invaderParagraph">I'm another classed-up H5. Click me, SEE WHAT HAPPENS!</h5>
+<!--Javascript import-->
+  <script src="script.js" async></script>
+  </body>
+</html>

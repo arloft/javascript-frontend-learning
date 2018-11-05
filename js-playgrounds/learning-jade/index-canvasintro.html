@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>2D Breakout</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            * {padding: 0; margin: 0;}
+            canvas {background: #eee; display: block; margin: 0 auto;}
+        </style>
+    </head>
+    <body>
+        
+        <canvas id="myCanvas" width="480" height="320"></canvas>
+        
+        <script type="text/javascript">
+            var canvas = document.getElementById("myCanvas");
+            var ctx = canvas.getContext("2d");
+			
+			// set up the paddle's variables
+			var paddleHeight = 10;
+			var paddleWidth = 75;
+			var paddleX = (canvas.width-paddleWidth)/2;
+			
+            // stores the ball's radius
+			var ballRadius = 10;
+			
+			// sets a starting position for the ball
+			var x = canvas.width/2;
+			var y = canvas.height-30;
+			
+			// sets the amount the ball is moved each time it's drawn (AKA: the ball's movement speed)
+			var dx = 2;
+			var dy = -2;
+			
+			function drawBall() { // draws the ball
+				ctx.beginPath();
+				ctx.arc(x, y, ballRadius, 0, Math.PI*2);
+				ctx.fillStyle = "#0095DD";
+				ctx.fill();
+				ctx.closePath();
+			}
+			
+			function drawPaddle() {
+				ctx.beginPath();
+				ctx.rect(paddleX, canvas.height-paddleHeight, paddleWidth, paddleHeight);
+				ctx.fillStyle = "#0095DD";
+				ctx.fill();
+				ctx.closePath();
+			}
+			
+			function draw() { 
+				// ^ clears the canvas, calls drawBall(), then moves the ball
+				ctx.clearRect(0, 0, canvas.width, canvas.height);
+				drawBall();
+				
+				// ^ adding dx / dy values to x & y makes the ball move each frame
+				
+				// keep the ball inside the walls
+				if (x + dx > canvas.width - ballRadius || x + dx < ballRadius) {
+					dx = -dx;
+				} // ^ is the ball's X value (minus the ball's radius) greater than the canvas width OR less than zero?
+				
+				if (y + dy > canvas.height - ballRadius || y + dy < ballRadius) {
+					dy = -dy;
+				} // ^ is the ball's Y value greater (minus the ball's radius) than the canvas height OR less than zero?
+				x += dx;
+				y += dy;
+			}
+
+			// calls the draw() function every 10 milliseconds
+			setInterval(draw, 10);
+            
+        </script>
+        
+    </body>
+</html>
