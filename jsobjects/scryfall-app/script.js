@@ -11,12 +11,21 @@ var request = new XMLHttpRequest();
 
 request.open('GET', 'https://api.scryfall.com/symbology', true);
 // Open a new connection, using a GET request on the URL endpoint
+// console.log(request);
 
-request.onload = function() {
-  // Begin accessing JSON data here
-  var data = JSON.parse(this.responseText);
-  console.log(data.data[0].object);
-  //
+request.onload = function () {
+  // Begin accessing JSON data here, using a generic function
+  var aSymbol = JSON.parse(this.responseText);
+for (var i = 0; i < aSymbol.data.length; i++) {
+    // ^^ this loop counts the number of array elements (objects)
+    app.appendChild(container).textContent = aSymbol.data[i].english;
+    console.log(aSymbol.data[i].english);
+    // ^^ this prints each array element to the console, using the var i,
+    // to know what number element it's on
+    // ^^ the ".dot-part" after data[i] (.symbol, .english, etc), 
+    // tells what property of the specific object to get 
+  }
+
   // if (request.status >= 200 && request.status < 400) {
     // data.forEach(cardSymbol => {
   //     // Log for each movie's title
@@ -29,7 +38,7 @@ request.onload = function() {
     // const errorMessage = document.createElement('marquee');
     // errorMessage.textContent = `FAIL! Not working :(`;
     // app.appendChild(errorMessage);
-  }
+}
 // }
 
 request.send();
