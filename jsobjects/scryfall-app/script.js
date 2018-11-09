@@ -33,9 +33,10 @@ request.onload = function () {
 //	  console.log(container);
 	  const newP = document.createElement('p');
 //	  console.log(newP);
-	  newP.innerHTML = d.english;
+	  newP.innerHTML = d.symbol + ": "+ d.english;
 	  // Use 'innerHTML' instead of 'textContent' when creating a new page element, so you have a Node where you can attach new elements
 	  document.body.appendChild(newP);
+	  	  
 	  return d.english;
   }) ;
 	
